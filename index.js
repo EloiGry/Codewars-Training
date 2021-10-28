@@ -183,48 +183,73 @@
 
 // ------------------------------------------------------------------------------------
   
-function bitsBattle(num) {
-  var arrayEven = []
-  var arrayOdd = []
-  var even = num.filter(even => even % 2 === 0 )
-  var odd = num.filter(odd => odd % 2 !== 0)
-  even.forEach(number => {
-    var bit = number.toString(2)
-    arrayEven.push(bit)
-  });
-  odd.forEach(number => {
-    var bit = number.toString(2)
-    arrayOdd.push(bit)
-  });
+// function bitsBattle(num) {
+//   var arrayEven = []
+//   var arrayOdd = []
+//   var even = num.filter(even => even % 2 === 0 )
+//   var odd = num.filter(odd => odd % 2 !== 0)
+//   even.forEach(number => {
+//     var bit = number.toString(2)
+//     arrayEven.push(bit)
+//   });
+//   odd.forEach(number => {
+//     var bit = number.toString(2)
+//     arrayOdd.push(bit)
+//   });
 
-  var joinEven = arrayEven.join("")
-  var joinOdd = arrayOdd.join("")
+//   var joinEven = arrayEven.join("")
+//   var joinOdd = arrayOdd.join("")
 
-  var countEven = 0
-  var countOdd = 0
-  for (var i=0; i< joinEven.length; i++) {
-    if (joinEven[i] === '0') {
-      countEven++
+//   var countEven = 0
+//   var countOdd = 0
+//   for (var i=0; i< joinEven.length; i++) {
+//     if (joinEven[i] === '0') {
+//       countEven++
+//     }
+//   }
+
+//   for (var i=0; i< joinOdd.length; i++) {
+//     if (joinOdd[i] === '1') {
+//       countOdd++
+//     }
+// }
+
+// console.log(countEven)
+// console.log(countOdd)
+
+// if (countEven > countOdd) {
+//   console.log ('evens wins')
+// } else if (countOdd > countEven){
+//   console.log ('odds wins')
+// } else {
+//   console.log ('tie')
+// }
+
+// }
+
+// bitsBattle([3, 8, 22, 15, 78])
+
+// -------------------------------------------------------------------------------
+// Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
+var number = []
+var sum = 0
+
+function sumDigPow(a, b) {
+  for (var i=a; i<=b; i++) {
+    var string = i.toString()
+    var array = string.split("")
+    var numbers = array.map(Number)
+    
+    for (var j=0; j<numbers.length; j++){
+      sum = sum + (numbers[j]**[j+1])
+    }
+    if (sum === i) {
+      number.push(sum)
     }
   }
+    console.log(number) 
 
-  for (var i=0; i< joinOdd.length; i++) {
-    if (joinOdd[i] === '1') {
-      countOdd++
-    }
-}
-
-console.log(countEven)
-console.log(countOdd)
-
-if (countEven > countOdd) {
-  console.log ('evens wins')
-} else if (countOdd > countEven){
-  console.log ('odds wins')
-} else {
-  console.log ('tie')
-}
 
 }
 
-bitsBattle([3, 8, 22, 15, 78])
+sumDigPow(90, 120)
